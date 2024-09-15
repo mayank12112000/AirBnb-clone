@@ -4,6 +4,8 @@ const port = process.env.PORT || 3000
 const mongoose = require("mongoose")
 const Listing = require("./models/listing")
 const path = require("path")
+app.use(express.urlencoded({ extended: true }));
+
 const MONGO_URL = process.env.MONGO_URL ||  'mongodb://127.0.0.1:27017/wanderlust';
 
 app.set("view engine","ejs")
@@ -27,16 +29,12 @@ app.listen(port,()=>{
 app.get("/listings",async (req,res)=>{
     const allListings = await Listing.find()
     res.render("listings/index.ejs",{allListings})
+    const url = app.url
 })
-// app.get("/testListing",async (req,res)=>{
-//     let sampleListing = new Listing({
-//         title:"My new villa",
-//         price:"2000",
-//         description:"by the bay",
-//         location:"Beohari",
-//         country:"India"
-//     })
-//     await sampleListing.save()
-//     console.log("sample was saved")
-//     res.send("successfull")
-// })
+
+app.get("/listings/:id", async(req,res)=>{
+    const {id} = req.params
+    console.log(id)
+    const listing = await Listing.findById(id)
+    res.render("listings/show.ejs",{listing})
+})
