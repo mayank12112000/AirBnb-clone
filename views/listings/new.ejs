@@ -1,12 +1,34 @@
 <% layout("/layouts/boilerplate.ejs")%>
+
 <body>
     <h3>Create New Listing</h3>
-    <form action="/listings" method="post">
-        <input name="title" type="text" placeholder="enter title" required> <br>
-        <textarea name="description" placeholder="enter description" required></textarea> <br>
-        <input name="image" type="url" placeholder="enter image link/url" > <br>
-        <input name="price" type="number" placeholder="enter price" required> <br>
-        <input name="location" type="text" placeholder="enter locaiton" required> <br>
-        <button>Submit</button>
+    <form class="my-3 row" action="/listings" method="post">
+        <div class="col-10 offset-1">
+            <div>
+                <label for="title" class="form-label">Title</label>
+                <input class="form-control" name="title" id="title" type="text" placeholder="enter title" required> <br>
+            </div>
+            <div>
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description" placeholder="enter description" required></textarea> <br>
+            </div>
+            <div>
+                <label for="url" class="form-label">Image url</label>
+                <input class="form-control" name="image" id="url" type="url" placeholder="enter image link/url"> <br>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label for="" class="form-label">Price/night</label>
+                    <input name="price" class="form-control" type="number" placeholder="enter price" required> <br>
+                </div>
+                <div class="col-8">
+                    <label for="country" class="form-label">Country</label>
+                    <input name="country" id="country" class="form-control" type="text" placeholder="enter locaiton" required> <br>
+                </div>
+            </div>
+                <label for="location" class="form-label">Location</label>
+                <input name="location" id="location" class="form-control" type="text" placeholder="enter locaiton" required> <br>
+            <button class="btn add-btn">Submit</button>
+        </div>
     </form>
 </body>

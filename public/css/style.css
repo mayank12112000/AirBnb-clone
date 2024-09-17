@@ -1,5 +1,12 @@
 body{
-    font-family: "Plus Jakarta Sans", sans-serif !important
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* boiler plate */
+.container{
+    flex:1
 }
 .navbar{
     /* height: 5rem; */
@@ -17,8 +24,6 @@ footer{
     justify-content: center;
     padding: 1rem;
     background-color: #d2d6dc;
-}
-.f-info{
 }
 .f-info-social{
     display: flex;
@@ -65,4 +70,10 @@ footer a{
 .card-img-overlay:hover{
     opacity: 0.2;
     background-color: white;
+}
+/* edit page */
+.add-btn{
+    background-color: red !important;
+    color: white !important;
+    font-weight: 700 !important;
 }
