@@ -1,11 +1,14 @@
 <% layout("/layouts/boilerplate.ejs")%>
 <body>
     <h1>All listings</h1>
-   <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1 d-flex justify-content-around">
+   <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 d-flex justify-content-around">
        <%for(let listing of allListings){ %>
         <div class="card col">
             <a class="card-link" href="/listings/<%= listing._id %>">
                 <img src="<%= listing.image%>" class="card-img-top" alt="..." style="height: 20rem;">
+                <div class="card-img-overlay">
+                    <!-- text overlay can be place here -->
+                </div>
                 <div class="card-body">
                     <p class="card-text">
                        <b><%=listing.title%></b><br/> &#8377 <%=listing.price.toLocaleString("en-IN")%>/night
