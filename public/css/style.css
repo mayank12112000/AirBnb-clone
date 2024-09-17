@@ -83,3 +83,11 @@ footer a{
     color: white !important;
     font-weight: 700 !important;
 }
+
+/* show page */
+.show-img{
+    height: 30vh !important;
+}
+.show-listing .card-text{
+    margin: 0;
+}
