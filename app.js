@@ -3,15 +3,20 @@ const app = express()
 const port = process.env.PORT || 3000
 const mongoose = require("mongoose")
 const Listing = require("./models/listing")
-const path = require("path")
 const methodOverride = require("method-override")
 app.use(methodOverride("_method"))
 app.use(express.urlencoded({ extended: true }));
+app.set("view engine","ejs")
+
+const ejsmate= require("ejs-mate")
+app.engine("ejs",ejsmate)
+
+const path = require("path")
+app.use(express.static(path.join(__dirname, "/public")));
+app.set("views",path.join(__dirname,"views"))
 
 const MONGO_URL = process.env.MONGO_URL ||  'mongodb://127.0.0.1:27017/wanderlust';
 
-app.set("view engine","ejs")
-app.set("views",path.join(__dirname,"views"))
 
 async function main(){
     await mongoose.connect(MONGO_URL)
