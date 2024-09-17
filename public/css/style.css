@@ -77,3 +77,9 @@ footer a{
     color: white !important;
     font-weight: 700 !important;
 }
+/* edit page */
+.edit-btn{
+    background-color: red !important;
+    color: white !important;
+    font-weight: 700 !important;
+}
